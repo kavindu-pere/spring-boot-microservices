@@ -5,5 +5,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * @author Kavindu Perera
  */
-interface ProductRepository extends JpaRepository<ProductEntity, Long> {
-}
+interface ProductRepository extends JpaRepository<ProductEntity, Long> {}

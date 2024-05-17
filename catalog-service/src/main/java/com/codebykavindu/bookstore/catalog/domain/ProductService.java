@@ -1,6 +1,5 @@
 package com.codebykavindu.bookstore.catalog.domain;
 
-
 import com.codebykavindu.bookstore.catalog.ApplicationProperties;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -28,8 +27,7 @@ public class ProductService {
         pageNo = pageNo <= 1 ? 0 : pageNo - 1;
 
         Pageable pageable = PageRequest.of(pageNo, properties.pageSize(), sort);
-        Page<Product> productsPage = productRepository.findAll(pageable)
-                .map(ProductMapper::toProduct);
+        Page<Product> productsPage = productRepository.findAll(pageable).map(ProductMapper::toProduct);
 
         return new PagedResult<>(
                 productsPage.getContent(),
@@ -39,7 +37,6 @@ public class ProductService {
                 productsPage.isFirst(),
                 productsPage.isLast(),
                 productsPage.hasNext(),
-                productsPage.hasPrevious()
-        );
+                productsPage.hasPrevious());
     }
 }
