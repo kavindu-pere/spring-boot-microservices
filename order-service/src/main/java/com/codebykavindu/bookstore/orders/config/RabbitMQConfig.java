@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
  * @author Kavindu Perera
  */
 @Configuration
-public class RabbitMQConfig {
+class RabbitMQConfig {
     private final ApplicationProperties properties;
 
     public RabbitMQConfig(ApplicationProperties properties) {
