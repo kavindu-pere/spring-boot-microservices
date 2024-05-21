@@ -6,6 +6,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import com.codebykavindu.bookstore.orders.AbstractIntegrationTest;
 import com.codebykavindu.bookstore.orders.testdata.TestDataFactory;
 import io.restassured.http.ContentType;
+import java.math.BigDecimal;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
@@ -19,33 +20,33 @@ class OrderControllerTests extends AbstractIntegrationTest {
     class CreateOrderTests {
         @Test
         void shouldCreateOrderSuccessfully() {
+            mockGetProductByCode("P100", "Product 1", new BigDecimal("25.50"));
             var payload =
                     """
-                            {
-                                "customer" : {
-                                    "name": "Kavindu",
-                                    "email": "kavindu@gmail.com",
-                                    "phone": "999999999"
-                                },
-                                "deliveryAddress" : {
-                                    "addressLine1": "Birkelweg",
-                                    "addressLine2": "Hans-Edenhofer-Straße 23",
-                                    "city": "Berlin",
-                                    "state": "Berlin",
-                                    "zipCode": "94258",
-                                    "country": "Germany"
-                                },
-                                "items": [
-                                    {
-                                        "code": "P100",
-                                        "name": "Product 1",
-                                        "price": 25.50,
-                                        "quantity": 1
-                                    }
-                                ]
-                            }
+                        {
+                            "customer" : {
+                                "name": "Siva",
+                                "email": "siva@gmail.com",
+                                "phone": "999999999"
+                            },
+                            "deliveryAddress" : {
+                                "addressLine1": "HNO 123",
+                                "addressLine2": "Kukatpally",
+                                "city": "Hyderabad",
+                                "state": "Telangana",
+                                "zipCode": "500072",
+                                "country": "India"
+                            },
+                            "items": [
+                                {
+                                    "code": "P100",
+                                    "name": "Product 1",
+                                    "price": 25.50,
+                                    "quantity": 1
+                                }
+                            ]
+                        }
                     """;
-
             given().contentType(ContentType.JSON)
                     .body(payload)
                     .when()

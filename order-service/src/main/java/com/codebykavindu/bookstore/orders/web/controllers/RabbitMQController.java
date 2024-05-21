@@ -14,7 +14,7 @@ class RabbitMQController {
     private final RabbitTemplate rabbitTemplate;
     private final ApplicationProperties properties;
 
-    public RabbitMQController(RabbitTemplate rabbitTemplate, ApplicationProperties properties) {
+    RabbitMQController(RabbitTemplate rabbitTemplate, ApplicationProperties properties) {
         this.rabbitTemplate = rabbitTemplate;
         this.properties = properties;
     }

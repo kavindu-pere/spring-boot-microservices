@@ -25,7 +25,7 @@ class OrderController {
     private final OrderService orderService;
     private final SecurityService securityService;
 
-    public OrderController(OrderService orderService, SecurityService securityService) {
+    OrderController(OrderService orderService, SecurityService securityService) {
         this.orderService = orderService;
         this.securityService = securityService;
     }
