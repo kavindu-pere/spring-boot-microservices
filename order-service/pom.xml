@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.codebykavindu</groupId>
     <artifactId>order-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>order-service</name>
     <description>Order Service</description>
     <properties>
@@ -152,6 +152,7 @@
                 <configuration>
                     <image>
                         <name>${dockerImageName}</name>
+                        <builder>bellsoft/buildpacks.builder:musl</builder>
                     </image>
                 </configuration>
                 <executions>
